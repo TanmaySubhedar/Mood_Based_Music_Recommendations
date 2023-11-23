@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laoding page</title>
+    <!-- Add this in the <head> section of your HTML file -->
+
+</head>
+<body>
+    <h1> Please wait while the recommendations are being loaded</h1>
+    <img src = "tenor.gif" >
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Example AJAX request
+            $.ajax({
+                url: '/get_recommendations/',  // Replace with your actual Django view URL
+                type: 'POST',
+                success: function (data) {
+                    // Handle the response data here
+                    console.log(data);
+                },
+                error: function (error) {
+                    // Handle errors
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

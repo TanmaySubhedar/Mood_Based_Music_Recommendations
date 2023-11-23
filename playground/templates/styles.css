@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #3498db, #2980b9); /* Gradient background bluish note */
+    color: #e7dddd; /* Text color */
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+fieldset {
+    margin-bottom: 20px;
+    border: 1px solid #fff; /* Border color */
+    border-radius: 8px;
+    padding: 10px;
+}
+
+legend {
+    color: #fff;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background-color: #1e3799; /* Bluish black background */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px); /* Uplift on hover */
+}

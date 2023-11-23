@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Recommendations</title>
+    <style>
+       body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ffb6c1, #87cefa);
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px; /* Adjusted the max-width */
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px #555; /* Added a text-shadow for a subtle glow effect */
+    animation: glow 1s ease-in-out infinite alternate; /* Added a glow animation */
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 2px #555;
+    }
+    to {
+        text-shadow: 4px 4px 4px #ff69b4;
+    }
+}
+
+a {
+    color: black;
+
+}
+
+.song-item {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+            padding: 10px;
+            background: #ffc0cb; /* Changed the background color */
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* Increased the spacing between cells */
+            transition: background-color 0.3s ease;
+        }
+
+        .song-item:hover {
+            background: #ff69b4; /* Changed background color on hover */
+        }
+
+        .song-details {
+            margin-left: 10px;
+            flex-grow: 1;
+        }
+
+        .song-item img {
+            box-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .song-name,
+        .song-artist {
+            color: #333; /* Changed the text color of the artist name */
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Spotify Recommendations</h1>
+
+    {% if recommendations %}
+    <div class="container">
+        <ul class="song-list">
+            {% for track in recommendations %}
+            <li>
+                <a href="{{ track.external_urls.spotify }}" target="_blank" class="song-item">
+                    <img src="{{ track.album.images.0.url }}" alt="{{ track.name }} Album Cover">
+                    <div class="song-details">
+                        <span class="song-name">{{ track.name }}</span>
+                        <br>
+                        <span class="song-artist">{{ track.artists.0.name }}</span>
+                    </div>
+                </a>
+            </li>
+            <br>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <p>No recommendations available.</p>
+    {% endif %}
+</body>
+
+</html>

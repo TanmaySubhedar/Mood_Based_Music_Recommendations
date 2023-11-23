@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Determination Form</title>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #3498db, #2980b9); /* Gradient background bluish note */
+        color: #e7dddd; /* Text color */
+    }
+    
+    h1 {
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    form {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    fieldset {
+        margin-bottom: 20px;
+        border: 1px solid #fff; /* Border color */
+        border-radius: 8px;
+        padding: 10px;
+    }
+    
+    legend {
+        color: #fff;
+        font-weight: bold;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    input[type="radio"] {
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    
+    input[type="submit"] {
+        background-color: #1e3799; /* Bluish black background */
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    input[type="submit"]:hover {
+        transform: translateY(-2px); /* Uplift on hover */
+    }
+    </style>
+
+</head>
+<body>
+    <h1>How Would You Describe Your Mood Today?</h1>
+    <form id="moodForm" method="post" action="{% url 'get_recommendations' %}">
+    
+        {% csrf_token %}
+        
+        <!-- Question 1 -->
+        <fieldset>
+            <legend>How would you describe the weather today?</legend>
+            <label>
+                <input type="radio" name="weather" value="Sunny" required> Sunny
+            </label>
+            <label>
+                <input type="radio" name="weather" value="Cloudy" required> Cloudy
+            </label>
+            <label>
+                <input type="radio" name="weather" value="Rainy" required> Rainy
+            </label>
+            <label>
+                <input type="radio" name="weather" value="Snowy" required> Snowy
+            </label>
+        </fieldset>
+
+        <!-- Question 2 -->
+        <fieldset>
+            <legend>What type of music have you been listening to lately?</legend>
+            <label>
+                <input type="radio" name="music" value="Upbeat and energetic" required> Upbeat and energetic
+            </label>
+            <label>
+                <input type="radio" name="music" value="Calm and soothing" required> Calm and soothing
+            </label>
+            <label>
+                <input type="radio" name="music" value="Melancholic and reflective" required> Melancholic and reflective
+            </label>
+            <label>
+                <input type="radio" name="music" value="I haven't been listening to music recently" required> I haven't been listening to music recently
+            </label>
+        </fieldset>
+
+        <!-- Question 3 -->
+        <fieldset>
+            <legend>If you could choose a color to represent your day so far, what would it be?</legend>
+            <label>
+                <input type="radio" name="color" value="Bright and vibrant" required> Bright and vibrant
+            </label>
+            <label>
+                <input type="radio" name="color" value="Muted and neutral" required> Muted and neutral
+            </label>
+            <label>
+                <input type="radio" name="color" value="Dark and intense" required> Dark and intense
+            </label>
+            <label>
+                <input type="radio" name="color" value="I haven't thought about it" required> I haven't thought about it
+            </label>
+        </fieldset>
+
+        <!-- Question 4 -->
+        <fieldset>
+            <legend>What's your go-to comfort food or drink when you need a pick-me-up?</legend>
+            <label>
+                <input type="radio" name="food" value="Something sweet" required> Something sweet
+            </label>
+            <label>
+                <input type="radio" name="food" value="Something savory" required> Something savory
+            </label>
+            <label>
+                <input type="radio" name="food" value="Something warm like tea or coffee" required> Something warm like tea or coffee
+            </label>
+            <label>
+                <input type="radio" name="food" value="I don't have a specific comfort food or drink" required> I don't have a specific comfort food or drink
+            </label>
+        </fieldset>
+
+        <!-- Question 5 -->
+        <fieldset>
+            <legend>How would you describe your energy levels right now?</legend>
+            <label>
+                <input type="radio" name="energy" value="Energetic and ready to go" required> Energetic and ready to go
+            </label>
+            <label>
+                <input type="radio" name="energy" value="Moderately energetic" required> Moderately energetic
+            </label>
+            <label>
+                <input type="radio" name="energy" value="Somewhat low energy" required> Somewhat low energy
+            </label>
+            <label>
+                <input type="radio" name="energy" value="Very low energy, feeling drained" required> Very low energy, feeling drained
+            </label>
+        </fieldset>
+
+        <br>
+        <input type="submit" value="Get Songs">
+    </form>
+    
+</body>
+</html>
