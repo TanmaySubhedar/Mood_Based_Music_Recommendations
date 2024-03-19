@@ -1,0 +1,1 @@
+Developed a web application featuring a HTML form to assess user mood, utilizing Django backend and a CatBoost classifier for mood prediction based on form responses. Integrated Spotify API to map moods to genres and fetch relevant songs for personalized music recommendations.
