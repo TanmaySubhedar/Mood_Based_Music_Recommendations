@@ -70,7 +70,7 @@ def get_spotify_recommendations(recommendations,access_token):
     params = {
         'seed_genres': recommendations,
         'limit': 10,
-        # Add more parameters as needed based on your application logic
+        
     }
 
     headers = {'Authorization': f'Bearer {access_token}'}
