@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Install dependencies
-pip install -r requirements.txt
+# Use the Python interpreter provided by Vercel
+python3.9 -m pip install -r requirements.txt
 
 # Collect static files
-python manage.py collectstatic --noinput
+python3.9 manage.py collectstatic --noinput
 
 # Run database migrations
-python manage.py migrate
+python3.9 manage.py migrate
